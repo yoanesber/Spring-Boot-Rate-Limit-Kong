@@ -313,5 +313,5 @@ RateLimit-Reset: 1
 ---
 
 ## 📌 Reference
-Rate Limit with Redis GitHub Repository, check out [Department REST API with Redis Cache and Rate Limiting](https://github.com/yoanesber/Spring-Boot-Rate-Limit-Redis).
-Rate Limit with Bucket4j GitHub Repository, check out [Rate Limiting with Bucket4j and Hazelcast](https://github.com/yoanesber/Spring-Boot-Rate-Limit-Bucket4j).
+- Rate Limit with Redis GitHub Repository, check out [Department REST API with Redis Cache and Rate Limiting](https://github.com/yoanesber/Spring-Boot-Rate-Limit-Redis).
+- Rate Limit with Bucket4j GitHub Repository, check out [Rate Limiting with Bucket4j and Hazelcast](https://github.com/yoanesber/Spring-Boot-Rate-Limit-Bucket4j).
