@@ -178,7 +178,7 @@ psql -h <WINDOWS_IP_ADDRESS> -U postgres -d postgres
 #### 1. Create a Separate User and Database for Kong:
 - Connect to PostgreSQL (from WSL or Windows Terminal)
 ```bash
-psql -h 172.26.160.1 -U postgres -d postgres
+psql -h <WINDOWS_IP_ADDRESS> -U postgres -d postgres
 ```
 
 - Then, run this scripts:
@@ -227,14 +227,14 @@ curl -i http://localhost:8001
 ```
 
 ### G. Register Spring Services into Kong
-Kong Ports:
-`8000`: Kong Proxy (HTTP) → Used to forward API requests
-`8001`: Kong Admin API (HTTP) → Used for managing services, routes, plugins
+**Kong Ports**:
+- `8000`: Kong Proxy (HTTP) → Used to forward API requests
+- `8001`: Kong Admin API (HTTP) → Used for managing services, routes, plugins
 
 #### 1. Register Your API as a Kong Service in WSL
 - Run the following command in WSL (replace the values accordingly):
 ```bash
-curl -i -X POST http://localhost:8001/services --data "name=department-service" --data "url=http://<WINDOWS_IP_ADDRESS>:<RUNNING_APP_PORT>" --data "path=/api/v1/departments"
+curl -i -X POST http://localhost:8001/services --data "name=department-service" --data "url=http://<WINDOWS_IP_ADDRESS>:<RUNNING_APP_PORT>/api/v1/departments"
 ```
 **Note**: This registers a new service in Kong called `"department-service"` and stores the configuration in Kong's database.
 
