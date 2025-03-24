@@ -309,6 +309,7 @@ RateLimit-Reset: 1
 ```
 
 **Note**: This is default rate limiting response. It also includes standard rate-limiting headers, such as `X-RateLimit-Limit-Second` (Maximum requests allowed per second), `X-RateLimit-Remaining-Second` (Remaining allowed requests in the current second), `Retry-After` (Time in seconds to wait before making a new request).
+
 ---
 
 ## 📌 Reference
