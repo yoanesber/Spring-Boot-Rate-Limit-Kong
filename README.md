@@ -32,7 +32,7 @@ The technology used in this project are:
 ## 📋Project Structure
 The project is organized into the following package structure:
 ```bash
-rate_limit_with_kong/
+rate-limit-with-kong/
 │── src/main/java/com/yoanesber/rate_limit_with_kong/
 │   ├── controller/            # Contains REST controllers that handle HTTP requests and return responses
 │   ├── entity/                # Contains entity classes
@@ -315,3 +315,4 @@ RateLimit-Reset: 1
 ## 📌 Reference
 - Rate Limit with Redis GitHub Repository, check out [Department REST API with Redis Cache and Rate Limiting](https://github.com/yoanesber/Spring-Boot-Rate-Limit-Redis).
 - Rate Limit with Bucket4j GitHub Repository, check out [Rate Limiting with Bucket4j and Hazelcast](https://github.com/yoanesber/Spring-Boot-Rate-Limit-Bucket4j).
+- JWT Auth with Kong GitHub Repository, check out [Spring Boot Department API with Kong JWT Authentication (DB-Backed Mode)](https://github.com/yoanesber/Spring-Boot-JWT-Auth-Kong).
