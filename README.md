@@ -32,7 +32,7 @@ The technology used in this project are:
 ## 📋Project Structure
 The project is organized into the following package structure:
 ```bash
-rate-limit-with-bucket4j/
+rate_limit_with_kong/
 │── src/main/java/com/yoanesber/rate_limit_with_kong/
 │   ├── controller/            # Contains REST controllers that handle HTTP requests and return responses
 │   ├── entity/                # Contains entity classes
