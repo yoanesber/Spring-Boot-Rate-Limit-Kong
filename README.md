@@ -1,7 +1,9 @@
-# Spring Boot Department API with Kong API Gateway & Rate Limiting
+# Spring Boot Department API with Kong API Gateway & Rate Limiting (DB-Backed Mode)
 
 ## 📖 Overview
-This project is a **Spring Boot REST API** for managing department data. It integrates **Kong API Gateway** as a reverse proxy and security layer, running in **DB-Backed Mode with PostgreSQL**. The **Rate Limiting Plugin** is enabled using **local memory** to control request limits without modifying the application code.
+This project is a **Spring Boot REST API** for managing department data. It integrates **Kong API Gateway** as a reverse proxy and security layer, running in **DB-Backed Mode with PostgreSQL**. The **Rate Limiting Plugin** is enabled using **local memory** to control request limits **without modifying the application code**.
+
+This project is built and developed on **Windows**, using **WSL (Windows Subsystem for Linux) to run Kong**, while **PostgreSQL is installed on Windows**. Since Kong runs inside WSL and PostgreSQL is on Windows, **network configurations** must be set up properly to enable smooth communication between these components.
 
 ### 🛡️ Why Kong for API Management
 Kong is an API Gateway that sits in front of our services to provide **security, traffic control, and observability**. By using Kong, we achieve:  
@@ -18,6 +20,18 @@ Kong is an API gateway that provides a robust security layer for managing authen
 - **CORS Management** – Controls cross-origin access.
 - **Traffic Control** – Manages request routing, retries, and load balancing.
 
+### 💾 Why Use Kong in DB-Backed Mode?
+Kong strengthens API security by:  
+- **Dynamic Configuration** – Services, routes, and plugins can be configured dynamically via Kong Admin API without restarting Kong.
+- **Scalability** – Stores configurations in PostgreSQL, making it easy to scale across multiple Kong instances.
+- **Better Management** – Admin API allows real-time monitoring and adjustments without touching YAML files.
+
+### 🖧 Network Configuration Requirement
+Since Kong runs in WSL and PostgreSQL is on Windows, we need to:  
+- Allow **PostgreSQL connections** from WSL.
+- Retrieve **WSL IP address** and configure PostgreSQL to accept external connections.
+- Update `pg_hba.conf` and `postgresql.conf` for proper authentication
+
 ---
 
 ## 🤖 Tech Stack
@@ -30,7 +44,7 @@ The technology used in this project are:
 ---
 
 ## 🏗️ Project Structure
-The project is organized into the following package structure:
+The project is organized into the following package structure:  
 ```bash
 rate-limit-with-kong/
 │── src/main/java/com/yoanesber/rate_limit_with_kong/
@@ -43,7 +57,7 @@ rate-limit-with-kong/
 
 ## ⚙ Environment Configuration
 Configuration values are stored in `.env.development` and referenced in `application.properties`.  
-Example `.env.development` file content:
+Example `.env.development` file content:  
 ```properties
 # Application properties
 APP_PORT=8081
@@ -227,7 +241,7 @@ curl -i http://localhost:8001
 ```
 
 ### G. Register Spring Services into Kong
-**Kong Ports**:
+**Kong Ports**:  
 - `8000`: Kong Proxy (HTTP) → Used to forward API requests
 - `8001`: Kong Admin API (HTTP) → Used for managing services, routes, plugins
 
